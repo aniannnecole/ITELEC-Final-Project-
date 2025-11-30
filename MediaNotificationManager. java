@@ -52,10 +52,10 @@ public class MediaNotificationManager {
                 .setContentTitle(title)
                 .setContentText(artist)
                 .setLargeIcon(albumArt)
-                .setDeleteIntent(getActionIntent("ACTION_STOP")) // When notification is removed / swiped away
+                .setDeleteIntent(getActionIntent("ACTION_STOP")) 
                 .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
                 .setOnlyAlertOnce(true)
-                .setCategory(NotificationCompat.CATEGORY_TRANSPORT) // Media Playback type of notification
+                .setCategory(NotificationCompat.CATEGORY_TRANSPORT) 
                 .setPriority(NotificationCompat.PRIORITY_LOW)
                 .addAction(new NotificationCompat.Action(R.drawable.media_previous_small, "Previous", getActionIntent("ACTION_SKIP_TO_PREVIOUS")));
 
