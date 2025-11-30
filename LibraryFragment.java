@@ -87,7 +87,7 @@ public class LibraryFragment extends Fragment {
     public void onStart() {
         super.onStart();
         Intent intent = new Intent(getActivity(), MediaPlaybackService.class);
-        getActivity().startService(intent); // Start the MediaPlaybackService
+        getActivity().startService(intent); 
         getActivity().bindService(intent, serviceConnection, Context.BIND_AUTO_CREATE);
     }
 
