@@ -65,9 +65,9 @@ public class PlayingFragment extends Fragment {
         getActivity().bindService(intent, serviceConnection, Context.BIND_AUTO_CREATE);
         if (mediaPlaybackService != null) {
             if (mediaPlaybackService.isPlaying()) {
-                playButton.setBackgroundResource(R.drawable.media_pause); // Set pause icon
+                playButton.setBackgroundResource(R.drawable.media_pause); 
             } else {
-                playButton.setBackgroundResource(R.drawable.media_play); // Set play icon
+                playButton.setBackgroundResource(R.drawable.media_play); 
             }
         }
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -83,12 +83,12 @@ public class PlayingFragment extends Fragment {
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-                // Do nothing (no intended implementation needed)
+                
             }
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                // Do nothing (no intended implementation needed)
+                
             }
         });
     }
@@ -119,7 +119,7 @@ public class PlayingFragment extends Fragment {
                         if (albumArtUri != null) {
                             Glide.with(getActivity())
                                     .load(albumArtUri)
-                                    .error(R.drawable.album_empty) // Fallback icon when no album art found
+                                    .error(R.drawable.album_empty) 
                                     .into(albumCover);
                         }
                     }
@@ -130,9 +130,9 @@ public class PlayingFragment extends Fragment {
             isBound = true;
 
             if (mediaPlaybackService.isPlaying()) {
-                playButton.setBackgroundResource(R.drawable.media_pause); // Set pause icon
+                playButton.setBackgroundResource(R.drawable.media_pause); 
             } else {
-                playButton.setBackgroundResource(R.drawable.media_play); // Set play icon
+                playButton.setBackgroundResource(R.drawable.media_play); 
             }
 
             Song currentSong = mediaPlaybackService.getCurrentSong();
@@ -147,7 +147,7 @@ public class PlayingFragment extends Fragment {
                             .error(R.drawable.album_empty)
                             .into(albumCover);
                 } else {
-                    // Set a default image or hide the ImageView if there's no album cover
+                    
                     albumCover.setImageResource(R.drawable.album_empty);
                 }
             }
