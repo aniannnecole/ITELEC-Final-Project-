@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
                     Manifest.permission.POST_NOTIFICATIONS
             });
         } else {
-            // Prompt for READ_EXTERNAL_STORAGE permission (Android 9-12)
+            
             requestPermissionLauncher =
                     registerForActivityResult(new ActivityResultContracts.RequestMultiplePermissions(), isGranted -> {
                         if (isGranted.getOrDefault(Manifest.permission.READ_EXTERNAL_STORAGE, false)) {
