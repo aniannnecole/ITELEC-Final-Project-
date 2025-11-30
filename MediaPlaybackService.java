@@ -54,12 +54,12 @@ public class MediaPlaybackService extends MediaBrowserServiceCompat {
     private boolean isShuffle = false;
     boolean isSwitchingSongs = false;
 
-    // Fields for shuffle and skipping functionality
+    
     private List<Integer> shuffledIndices;
     private int currentIndex = 0;
     private boolean userHasSkipped = false;
 
-    // SharedPreferences fields
+    
     private static final String PREFS_NAME = "com.example.tmplayer";
     private static final String PREF_CURRENT_SONG_INDEX = "currentSongIndex";
     private static final String PREF_SONG_POSITION = "songPosition";
@@ -108,7 +108,7 @@ public class MediaPlaybackService extends MediaBrowserServiceCompat {
         mediaSession = new MediaSessionCompat(this, "MusicPlayer");
         mediaPlayer = new MediaPlayer();
 
-        // Set the media session's callback
+        
         mediaSession.setCallback(new MediaSessionCompat.Callback() {
 
             @Override
@@ -178,13 +178,13 @@ public class MediaPlaybackService extends MediaBrowserServiceCompat {
                 super.onSkipToNext();
                 userHasSkipped = true; 
                     if (isRepeat) {
-                        playSong(songList.get(currentSongIndex)); // Continues to play same song
+                        playSong(songList.get(currentSongIndex)); 
                     } else {
                         if (isShuffle) {
                             currentIndex = (currentIndex + 1) % shuffledIndices.size(); // Use shuffled index when shuffle option is true
                             currentSongIndex = shuffledIndices.get(currentIndex);
                         } else {
-                            currentSongIndex++; // Go to next song index (in order)
+                            currentSongIndex++; 
                         }
                         playSong(songList.get(currentSongIndex));
                     }
@@ -195,16 +195,16 @@ public class MediaPlaybackService extends MediaBrowserServiceCompat {
             @Override
             public void onSkipToPrevious() {
                 super.onSkipToPrevious();
-                userHasSkipped = true; // Flag to determine whether the song change was manually called
+                userHasSkipped = true; 
                 if (currentSongIndex > 0) {
                     if (isRepeat) {
-                        playSong(songList.get(currentSongIndex)); // Continues to play same song
+                        playSong(songList.get(currentSongIndex)); 
                     } else {
                         if (isShuffle) {
-                            currentIndex = (currentIndex - 1) % shuffledIndices.size(); // Use shuffled index when shuffle option is true
+                            currentIndex = (currentIndex - 1) % shuffledIndices.size(); 
                             currentSongIndex = shuffledIndices.get(currentIndex);
                         } else {
-                            currentSongIndex--; // Go to previous song index (in order)
+                            currentSongIndex--; 
                         }
                         playSong(songList.get(currentSongIndex));
                     }
@@ -272,14 +272,14 @@ public class MediaPlaybackService extends MediaBrowserServiceCompat {
                             playSong(song);
                         } else {
                             if (isShuffle) {
-                                currentIndex = (currentIndex + 1) % shuffledIndices.size(); // Use shuffled index when shuffle option is true
+                                currentIndex = (currentIndex + 1) % shuffledIndices.size(); 
                                 playSong(songList.get(shuffledIndices.get(currentIndex)));
                             } else {
                                 if (currentSongIndex < songList.size() - 1) {
                                     currentSongIndex++;
                                     playSong(songList.get(currentSongIndex));
                                 } else {
-                                    mediaPlayer.stop(); // Upon reaching the end of all songs, stops playing
+                                    mediaPlayer.stop(); 
                                 }
                             }
                         }
